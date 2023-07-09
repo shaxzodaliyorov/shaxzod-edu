@@ -1,0 +1,17 @@
+{
+  "hero_discriptoin": "Kapsamlı ve uygulamalı programlama kurslarıyla dolu bir platforma hoş geldiniz. Tüm ücretli kurslarımızı ücretsiz olarak öğrenebilirsiniz.",
+  "hero_btn_1": "Başlamak",
+  "hero_btn_2": "Temas etmek",
+  "status_title": "Şirketimiz genişliyor, siz de büyüyebilirsiniz.",
+  "status_students": "öğrenciler",
+  "status_courses": "Dersler",
+  "status_languages": "Diller",
+  "all_courses": "Tüm Kurslar",
+  "all_courses_sub_title": "Aradığınız Tüm Mükemmel Kurslar Burada!",
+  "Technology_home_title": "Teknoloji",
+  "Technology_sub_title": "En son teknolojileri öğreneceksiniz!",
+  "react_tech_disc": "Web ve yerel kullanıcı arabirimleri için kitaplık",
+  "node_tech_disc": "Node.js, açık kaynaklı, platformlar arası bir JavaScript çalıştırma ortamıdır.",
+  "next_tech_disc": "Web için React Çerçevesi",
+  "nest_tech_disc": "Verimli, güvenilir ve ölçeklenebilir sunucu tarafı uygulamaları oluşturmak için ilerici bir Node.js çerçevesi."
+}

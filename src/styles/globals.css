@@ -1,0 +1,8 @@
+html,
+body {
+	scroll-behavior: smooth !important;
+}
+
+.react-multiple-carousel__arrow {
+	z-index: 50 !important;
+}

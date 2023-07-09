@@ -1,0 +1,17 @@
+{
+  "hero_discriptoin": "Dasturlashga oid to'liq va amaliy kurslarga boy platformaga xush kelibsiz. Bizda barcha pullik kurslarni bepulga o'rganishingiz mumkin.",
+  "hero_btn_1": "Hozir Boshlash",
+  "hero_btn_2": "Kontakt",
+  "status_title": "Bizning kompaniyamiz kengaymoqda, siz ham bo'lishingiz mumkin.",
+  "status_students": "Talabalar",
+  "status_courses": "Kurslar",
+  "status_languages": "Tillar",
+  "all_courses": "Barcha Kurslar",
+  "all_courses_sub_title": "Barcha Siz Qidirgan Mukammal Kurslar Shu yerda Joylashgan !",
+  "Technology_home_title": "Texnologiya",
+  "Technology_sub_title": "Eng So'ngi texnoloyigalarni o'rganasiz !",
+  "react_tech_disc": "Veb va mahalliy foydalanuvchi interfeyslari uchun kutubxona",
+  "node_tech_disc": "Node.js ochiq manbali, oʻzaro platformali JavaScript ish vaqti muhitidir.",
+  "next_tech_disc": "Web uchun React Framework",
+  "nest_tech_disc": "Samarali, ishonchli va kengaytiriladigan server ilovalarini yaratish uchun progressiv Node.js ramkasi."
+}

@@ -1,0 +1,11 @@
+{
+  "layout_login": "Login",
+  "layout_general": "General",
+  "layout_home": "Home",
+  "layout_courses": "Courses",
+  "layout_books": "Books",
+  "layout_pages": "Pages",
+  "layout_about": "About",
+  "layout_faq": "FAQ",
+  "layout_contact": "Contact"
+}

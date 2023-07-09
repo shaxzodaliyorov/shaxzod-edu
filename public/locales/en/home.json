@@ -1,0 +1,17 @@
+{
+  "hero_discriptoin": "Welcome to a platform full of comprehensive and hands-on programming courses. You can learn all our paid courses for free.",
+  "hero_btn_1": "Get Started",
+  "hero_btn_2": "Contact",
+  "status_title": "Our company is expanding, you could be too.",
+  "status_students": "Students",
+  "status_courses": "Courses",
+  "status_languages": "Languages",
+  "all_courses": "All Courses",
+  "all_courses_sub_title": "All The Perfect Courses You've Been Looking For Are Here!",
+  "Technology_home_title": "Technology",
+  "Technology_sub_title": "You will learn the latest technologies!",
+  "react_tech_disc": "The library for web and native user interfaces",
+  "node_tech_disc": "Node.js is an open-source, cross-platform JavaScript runtime environment.",
+  "next_tech_disc":"The React Framework for the Web",
+  "nest_tech_disc":"A progressive Node.js framework for building efficient, reliable and scalable server-side applications."
+}
