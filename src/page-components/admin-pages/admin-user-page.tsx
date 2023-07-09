@@ -115,7 +115,7 @@ const AdminUserPage = () => {
 							</Thead>
 							<Tbody>
 								{users
-									.filter(
+									?.filter(
 										c => c.firstname?.includes(search.trim()) || c.email?.includes(search.trim())
 									)
 									.map((item: UserType, index: number) => {
