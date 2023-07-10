@@ -9,6 +9,7 @@ import {
 	MenuButton,
 	MenuItem,
 	MenuList,
+	Tooltip,
 	useColorMode,
 	useColorModeValue,
 } from '@chakra-ui/react';
@@ -20,7 +21,7 @@ import { AiOutlineSetting } from 'react-icons/ai';
 import { BsFillSunFill, BsTranslate } from 'react-icons/bs';
 import { FaMoon } from 'react-icons/fa';
 import { FiLogIn, FiLogOut } from 'react-icons/fi';
-import { RiAdminFill, RiMenu2Line } from 'react-icons/ri';
+import { RiAdminFill, RiMenu2Line, RiNotification3Fill } from 'react-icons/ri';
 import { Languages } from '../../config/constants';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { removeItem } from '../../hooks/storage';
@@ -68,12 +69,28 @@ const Navbar = ({ ToggleBurger }: NavbarProps) => {
 				<Flex h={'full'} justifyContent={'space-between'} alignItems={'center'}>
 					<HStack spacing={8}>
 						<IconButton onClick={ToggleBurger} icon={<RiMenu2Line />} aria-label={'menu button'} />
-						<Link href={'/'}>
-							{colorMode === 'dark' ? <LightLogo /> : <DarkLogo />}
-							{/* <Heading fontSize={'xl'}>SHAxzod Eduction</Heading> */}
-						</Link>
+						<Link href={'/'}>{colorMode === 'dark' ? <LightLogo /> : <DarkLogo />}</Link>
 					</HStack>
 					<HStack>
+						<Tooltip hasArrow label='beta tez kunda'>
+							<Button pos={'relative'}>
+								<RiNotification3Fill />
+								<Box
+									as={'span'}
+									pos={'absolute'}
+									top={-1}
+									right={-1}
+									bg={'red'}
+									rounded={'full'}
+									fontSize={'0.8rem'}
+									w={4}
+									h={4}
+								>
+									5
+								</Box>
+							</Button>
+						</Tooltip>
+
 						<Menu>
 							<MenuButton
 								display={{ base: 'none', md: 'block' }}
@@ -96,6 +113,7 @@ const Navbar = ({ ToggleBurger }: NavbarProps) => {
 								))}
 							</MenuList>
 						</Menu>
+
 						<Button variant={'outline'} onClick={toggleColorMode}>
 							{colorMode === 'dark' ? <BsFillSunFill /> : <FaMoon />}
 						</Button>
@@ -106,7 +124,9 @@ const Navbar = ({ ToggleBurger }: NavbarProps) => {
 								</MenuButton>
 								<MenuList gap={8}>
 									{user.isadmin ? (
-										<MenuItem icon={<RiAdminFill />} onClick={()=>router.push("/admin/users")} >Admin Dashboard</MenuItem>
+										<MenuItem icon={<RiAdminFill />} onClick={() => router.push('/admin/users')}>
+											Admin Dashboard
+										</MenuItem>
 									) : null}
 									<MenuItem icon={<AiOutlineSetting />} onClick={toProfile}>
 										Sozlamalar

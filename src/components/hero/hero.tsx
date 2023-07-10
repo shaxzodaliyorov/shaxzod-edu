@@ -12,7 +12,7 @@ const Hero = () => {
 					<>
 						<Box
 							w={'full'}
-							h={{ base: '40vh', lg: '65vh' }}
+							h={{ base: '30vh', lg: '65vh' }}
 							backgroundImage={`url(${item.img})`}
 							key={index}
 							backgroundPosition={'center'}

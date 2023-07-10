@@ -1,5 +1,7 @@
 export { default as AccountRecovery } from './account-recovery/account-recovery';
+export { default as AdminAddCourseForm } from './admin-add-course-form/admin-add-course-form';
 export { default as AllCourses } from './all-courses/all-courses';
+export { default as CourseAdminCard } from './course-admin-card/course-admin-card';
 export { default as CourseComments } from './course-comments/course-comments';
 export { default as CourseItemDetails } from './course-item-details/course-item-details';
 export { default as EditUserModal } from './edit-user-modal/edit-user-modal';
@@ -13,6 +15,7 @@ export { default as SectionTitle } from './section-title/section-title';
 export { default as SocialMedia } from './social-media/social-media';
 export { default as Status } from './status/status';
 export { default as Technology } from './technology/technology';
+export { default as TextOptionalFailed } from './text-optional-failed/text-optional-failed';
 export { default as TextareaFeild } from './textarea-feild/textarea-feild';
 export { default as TextFeild } from './TextFeild/TextFeild';
 export { default as Verification } from './verification-component/verification';
