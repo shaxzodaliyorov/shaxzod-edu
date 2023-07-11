@@ -122,7 +122,7 @@ const Navbar = ({ ToggleBurger }: NavbarProps) => {
 								<MenuButton>
 									<Avatar src={user?.profilepic} />
 								</MenuButton>
-								<MenuList gap={8}>
+								<MenuList>
 									{user.isadmin ? (
 										<MenuItem icon={<RiAdminFill />} onClick={() => router.push('/admin/users')}>
 											Admin Dashboard

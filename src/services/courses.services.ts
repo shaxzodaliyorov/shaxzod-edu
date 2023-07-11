@@ -23,3 +23,5 @@ export const GET_ALL_COURSES = {
 		return data;
 	},
 };
+
+export default GET_ALL_COURSES;

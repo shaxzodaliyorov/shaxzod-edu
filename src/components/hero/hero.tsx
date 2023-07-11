@@ -9,33 +9,31 @@ const Hero = () => {
 		<Card w={'full'} py={{ base: 30, md: 5 }} px={5}>
 			<Carousel responsive={HeroCoursuel} infinite={true} autoPlay swipeable={true}>
 				{data.map((item, index) => (
-					<>
-						<Box
-							w={'full'}
-							h={{ base: '30vh', lg: '65vh' }}
-							backgroundImage={`url(${item.img})`}
-							key={index}
-							backgroundPosition={'center'}
-							backgroundRepeat={'no-repeat'}
-							backgroundSize={'cover'}
-							position={'relative'}
-							cursor='pointer'
-						>
-							<Box pos={'absolute'} top={0} left={0} right={0} bottom={0} bg={'rgba(0,0,0,0.7)'}>
-								<Stack
-									justifyContent={'center'}
-									spacing={3}
-									w={{ base: '100%', lg: '70%' }}
-									pl={{ base: 3, lg: 10 }}
-									pos={'relative'}
-									h={'full'}
-								>
-									<Heading color={'white'}>Shaxzod Aliyorov</Heading>
-									<Text color={'gray.400'}>{t('hero_discriptoin', { ns: 'home' })}</Text>
-								</Stack>
-							</Box>
+					<Box
+						key={index}
+						w={'full'}
+						h={{ base: '30vh', lg: '65vh' }}
+						backgroundImage={`url(${item.img})`}
+						backgroundPosition={'center'}
+						backgroundRepeat={'no-repeat'}
+						backgroundSize={'cover'}
+						position={'relative'}
+						cursor='pointer'
+					>
+						<Box pos={'absolute'} top={0} left={0} right={0} bottom={0} bg={'rgba(0,0,0,0.7)'}>
+							<Stack
+								justifyContent={'center'}
+								spacing={3}
+								w={{ base: '100%', lg: '70%' }}
+								pl={{ base: 3, lg: 10 }}
+								pos={'relative'}
+								h={'full'}
+							>
+								<Heading color={'white'}>Shaxzod Aliyorov</Heading>
+								<Text color={'gray.400'}>{t('hero_discriptoin', { ns: 'home' })}</Text>
+							</Stack>
 						</Box>
-					</>
+					</Box>
 				))}
 			</Carousel>
 		</Card>
