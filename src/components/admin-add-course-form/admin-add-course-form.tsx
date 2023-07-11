@@ -95,7 +95,7 @@ const AdminAddCourseForm = ({ setShow }: { setShow: (state: boolean) => void }) 
 								onChange={e => AvatarChangeHandeler(e.target.files as FileList)}
 							/>
 							{avatar ? (
-								<Image src={URL.createObjectURL(avatar as FileList)} w={40} h={40} alt={'course-image'} />
+								<Image src={URL.createObjectURL(avatar as Blob)} w={40} h={40} alt={'course-image'} />
 							) : (
 								<Box
 									w={40}
