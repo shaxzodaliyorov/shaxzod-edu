@@ -11,7 +11,7 @@ import TextOptionalFailed from '../text-optional-failed/text-optional-failed';
 import TextareaFeild from '../textarea-feild/textarea-feild';
 import TextFeild from '../TextFeild/TextFeild';
 const AdminAddCourseForm = ({ setShow }: { setShow: (state: boolean) => void }) => {
-	const [avatar, setAvatar] = useState('');
+	const [avatar, setAvatar] = useState<File | string | null>();
 	const [image, setImage] = useState<File | string | null>();
 	const [islaoding, setIslaoding] = useState(false);
 	const { user } = useAppSelector(state => state.auth);
@@ -95,7 +95,7 @@ const AdminAddCourseForm = ({ setShow }: { setShow: (state: boolean) => void }) 
 								onChange={e => AvatarChangeHandeler(e.target.files as FileList)}
 							/>
 							{avatar ? (
-								<Image src={avatar} w={40} h={40} alt={'course-image'} />
+								<Image src={URL.createObjectURL(avatar as FileList)} w={40} h={40} alt={'course-image'} />
 							) : (
 								<Box
 									w={40}
