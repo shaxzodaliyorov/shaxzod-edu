@@ -1,7 +1,7 @@
 import { Box, Button, Card, CardBody, Flex, HStack, Image, Spinner } from '@chakra-ui/react';
 import { Form, Formik } from 'formik';
 import { motion } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { FcAddImage } from 'react-icons/fc';
 import { useAppSelector } from '../../hooks/redux';
 import Admin from '../../services/admin.services';
@@ -11,30 +11,24 @@ import TextOptionalFailed from '../text-optional-failed/text-optional-failed';
 import TextareaFeild from '../textarea-feild/textarea-feild';
 import TextFeild from '../TextFeild/TextFeild';
 const AdminAddCourseForm = ({ setShow }: { setShow: (state: boolean) => void }) => {
-	const [avatar, setAvatar] = useState<File | string | null>();
+	const [avatar, setAvatar] = useState('');
 	const [image, setImage] = useState<File | string | null>();
 	const [islaoding, setIslaoding] = useState(false);
 	const { user } = useAppSelector(state => state.auth);
-	const imageRef = useRef();
-
-	const ChangeHandeler = (files: FileList | null) => {
-		if (files) {
-			const fileRef = files[0];
-			return fileRef;
-		}
-		return;
-	};
 
 	const createCourse = async (formdata: any) => {
-		const formData: FormData = new FormData();
-		formData.append('image', image as File);
-		let urlLink;
+		let imageUrlLink;
 		if (typeof image !== 'string') {
+			const formData: FormData = new FormData();
+			formData.append('image', image as File);
+			setIslaoding(true);
 			const response = await Upload.FileUpload(formData);
-			urlLink = response.url;
+			console.log(response);
+			imageUrlLink = response.url;
 		}
+
 		setIslaoding(true);
-		const data = { ...formdata, courseImg: urlLink, techimg: avatar };
+		const data = { ...formdata, courseImg: imageUrlLink, techimg: avatar };
 		await Admin.Create_Course(user?._id as string, data);
 		setIslaoding(true);
 		setShow(false);
@@ -49,7 +43,11 @@ const AdminAddCourseForm = ({ setShow }: { setShow: (state: boolean) => void }) 
 	const AvatarChangeHandeler = (files: FileList | null) => {
 		if (files) {
 			const fileRef = files[0];
-			setAvatar(fileRef);
+			const reader = new FileReader();
+			reader.readAsDataURL(fileRef);
+			reader.onload = () => {
+				setAvatar(reader.result as string);
+			};
 		}
 	};
 
@@ -95,7 +93,7 @@ const AdminAddCourseForm = ({ setShow }: { setShow: (state: boolean) => void }) 
 								onChange={e => AvatarChangeHandeler(e.target.files as FileList)}
 							/>
 							{avatar ? (
-								<Image src={URL.createObjectURL(avatar as Blob)} w={40} h={40} alt={'course-image'} />
+								<Image src={avatar as string} w={40} h={40} alt={'course-image'} />
 							) : (
 								<Box
 									w={40}
