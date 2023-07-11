@@ -1,4 +1,5 @@
 import { AXIOS_API_URL } from '../API';
+import { createCourseType } from '../interfaces/admin';
 import { AdminUserUpdateInitiolState, UserType } from '../interfaces/user';
 
 const Admin = {
@@ -12,6 +13,10 @@ const Admin = {
 	},
 	async Edit_user(userId: string, userdata: AdminUserUpdateInitiolState) {
 		const { data } = await AXIOS_API_URL.put(`/user/update/${userId}`, userdata);
+		return data;
+	},
+	async Create_Course(userId: string, courseData: createCourseType) {
+		const { data } = await AXIOS_API_URL.post(`/courses/post/${userId}`, courseData);
 		return data;
 	},
 };

@@ -17,7 +17,7 @@ const AdminCoursesPage = () => {
 				yangi Kusr Yaratish
 			</Button>
 
-			{show && <AdminAddCourseForm />}
+			{show && <AdminAddCourseForm setShow={setShow} />}
 		</>
 	);
 };
