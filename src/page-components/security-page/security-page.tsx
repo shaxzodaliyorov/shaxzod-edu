@@ -32,23 +32,33 @@ const SecurityPage = () => {
 		const FindLesson = lessons.find(c => c._id === id);
 		dispatch(getLesson(FindLesson));
 	};
-	
+
+	if (!lesson) return;
+
 	return (
 		<>
 			<Flex p={5} w={'100%'} flexWrap={'wrap'} justify={'space-between'} pos={'relative'}>
 				<Card w={{ base: '100%', md: '70%' }} p={4}>
 					<CardBody bg={useColorModeValue('gray.200', 'gray.800')} rounded={4}>
 						<Box w={'full'} h={{ base: '27vh', sm: '40vh', md: '60vh' }}>
-							<iframe width={'100%'} height='100%' src={lesson?.videolink}  ></iframe>
+							<iframe width={'100%'} height='100%' src={lesson?.videolink}></iframe>
 						</Box>
 					</CardBody>
 					<CardFooter>
 						<VStack w={'full'} align={'start'}>
 							<Heading size={'md'}>{lesson?.title}</Heading>
 							<Divider />
-							<Text cursor={'pointer'} _hover={{ textDecoration: 'underline' }} color={'green.500'}>
-								{lesson?.videoDisc}
-							</Text>
+							<Box
+								css={{
+									a: {
+										textDecoration: 'underline',
+										color: '#48BB78',
+									},
+								}}
+								dangerouslySetInnerHTML={{
+									__html: lesson?.videoDisc as string,
+								}}
+							></Box>
 						</VStack>
 					</CardFooter>
 				</Card>

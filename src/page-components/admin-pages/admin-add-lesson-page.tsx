@@ -84,7 +84,7 @@ const AdminAddLessonPage = () => {
 								</Tr>
 							</Thead>
 							<Tbody>
-								{lessons.map((item: LessonType, index: number) => (
+								{lessons?.map((item: LessonType, index: number) => (
 									<Tr key={index}>
 										<Td>{index + 1}</Td>
 										<Td>{item.title}</Td>
