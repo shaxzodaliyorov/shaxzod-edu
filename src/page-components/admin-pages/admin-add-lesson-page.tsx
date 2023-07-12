@@ -64,8 +64,6 @@ const AdminAddLessonPage = (): JSX.Element | undefined => {
 		setDiscription(item?.videoDisc);
 	};
 
-	if (!lessons) return;
-
 	return (
 		<>
 			<SectionTitle
