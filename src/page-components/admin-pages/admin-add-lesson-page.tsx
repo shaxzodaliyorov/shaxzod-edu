@@ -61,7 +61,7 @@ const AdminAddLessonPage = () => {
 		onOpen();
 		const { __v, course, coursetitle, createdAt, updatedAt, ...data } = item;
 		setInitialValues(data);
-		setDiscription(item.videoDisc);
+		setDiscription(item?.videoDisc);
 	};
 
 	if (!lessons) return;
