@@ -5,6 +5,7 @@ import { ImBooks } from 'react-icons/im';
 import { MdContactPhone } from 'react-icons/md';
 import { SiNestjs, SiNextdotjs } from 'react-icons/si';
 import { EngIcon, RusIcon, TurkIcon, UzbIcon } from '../icons';
+import { FormCourseInittionValueType } from '../interfaces/courses';
 export const Languages = [
 	{
 		icon: EngIcon,
@@ -213,4 +214,26 @@ export const AmdinNavigation = [
 		label: 'Lessons',
 		icon: MdContactPhone,
 	},
+];
+
+export const FormCourseInittionValue: FormCourseInittionValueType = {
+	title: '',
+	price: 0,
+	dagree: '',
+	language: '',
+	tech: '',
+	discription: '',
+	tutorial: '',
+};
+
+export const CourseSelectlanguages = [
+	{ value: "O'zbek Tili", label: "O'zbek Tili" },
+	{ value: 'Rus Tili', label: 'Rus Tili' },
+	{ value: 'Englis tili', label: 'Englis tili' },
+];
+
+export const CourseSelectDagrees = [
+	{ value: 'Junior', label: 'Junior' },
+	{ value: 'Middile', label: 'Middile' },
+	{ value: 'Senior', label: 'Senior' },
 ];

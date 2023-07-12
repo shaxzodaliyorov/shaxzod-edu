@@ -9,3 +9,4 @@ export { default as SecurityPage } from './security-page/security-page';
 export {default as ProfilePage} from "./profile-page/profile-page"
 export {default as AdminUserPage} from "./admin-pages/admin-user-page"
 export {default as AdminCoursesPage} from "./admin-pages/admin-courses-page"
+export {default as AdminAddLessonPage} from "./admin-pages/admin-add-lesson-page"

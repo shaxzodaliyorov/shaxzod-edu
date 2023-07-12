@@ -1,14 +1,17 @@
 import { GetServerSideProps } from 'next';
 import { allCoursesType } from '../../interfaces/courses';
 import { withAdminLayout } from '../../layouts/admin/admin.layout';
+import Seo from '../../layouts/seo/seo';
 import { AdminCoursesPage } from '../../page-components';
 import GET_ALL_COURSES from '../../services/courses.services';
 import USER from '../../services/user.services';
 
 const AdminCourses = ({ courses }: CoursesProps) => {
-	console.log(courses);
-
-	return <AdminCoursesPage />;
+	return (
+		<Seo metaTitle='Course Admin Dashboard'>
+			<AdminCoursesPage />
+		</Seo>
+	);
 };
 
 export default withAdminLayout(AdminCourses);

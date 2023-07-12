@@ -19,3 +19,4 @@ export { default as TextOptionalFailed } from './text-optional-failed/text-optio
 export { default as TextareaFeild } from './textarea-feild/textarea-feild';
 export { default as TextFeild } from './TextFeild/TextFeild';
 export { default as Verification } from './verification-component/verification';
+export {default as AdminEditCourseModal} from "./admin-edit-course-modal/admin-edit-course-modal"

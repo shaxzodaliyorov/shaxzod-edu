@@ -3,43 +3,60 @@ import { Form, Formik } from 'formik';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FcAddImage } from 'react-icons/fc';
-import { useAppSelector } from '../../hooks/redux';
+import { CourseSelectDagrees, CourseSelectlanguages, FormCourseInittionValue } from '../../config/constants';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import Admin from '../../services/admin.services';
-import Upload from '../../services/uploads.services';
+import GET_ALL_COURSES from '../../services/courses.services';
+import { getCourses } from '../../store/courses/course.slice';
+import { isLoadingLogin } from '../../store/user/user.slice';
 import AdminValidtions from '../../validations/admin.validation';
 import TextOptionalFailed from '../text-optional-failed/text-optional-failed';
 import TextareaFeild from '../textarea-feild/textarea-feild';
 import TextFeild from '../TextFeild/TextFeild';
 const AdminAddCourseForm = ({ setShow }: { setShow: (state: boolean) => void }) => {
 	const [avatar, setAvatar] = useState('');
-	const [image, setImage] = useState<File | string | null>();
+	const [image, setImage] = useState('');
 	const [islaoding, setIslaoding] = useState(false);
 	const { user } = useAppSelector(state => state.auth);
+	const dispatch = useAppDispatch();
+
+	const getAllCourse = async () => {
+		dispatch(isLoadingLogin(true));
+		const response = await GET_ALL_COURSES.GET();
+		dispatch(getCourses(response));
+		dispatch(isLoadingLogin(false));
+	};
 
 	const createCourse = async (formdata: any) => {
-		let imageUrlLink;
-		if (typeof image !== 'string') {
-			const formData: FormData = new FormData();
-			formData.append('image', image as File);
-			setIslaoding(true);
-			const response = await Upload.FileUpload(formData);
-			console.log(response);
-			imageUrlLink = response.url;
-		}
+		// let imageUrlLink;
+		// if (typeof image !== 'string') {
+		// 	const formData: FormData = new FormData();
+		// 	formData.append('image', image as File);
+		// 	setIslaoding(true);
+		// 	const response = await Upload.FileUpload(formData);
+		// 	console.log(response);
+		// 	imageUrlLink = response.url;
+		// }
 
 		setIslaoding(true);
-		const data = { ...formdata, courseImg: imageUrlLink, techimg: avatar };
+		const data = { ...formdata, courseImg: image, techimg: avatar };
 		await Admin.Create_Course(user?._id as string, data);
 		setIslaoding(true);
 		setShow(false);
+		getAllCourse();
 	};
 
 	const ImageChangeHandeler = (files: FileList | null) => {
 		if (files) {
 			const fileRef = files[0];
-			setImage(fileRef);
+			const reader = new FileReader();
+			reader.readAsDataURL(fileRef);
+			reader.onload = () => {
+				setImage(reader.result as string);
+			};
 		}
 	};
+
 	const AvatarChangeHandeler = (files: FileList | null) => {
 		if (files) {
 			const fileRef = files[0];
@@ -64,12 +81,7 @@ const AdminAddCourseForm = ({ setShow }: { setShow: (state: boolean) => void }) 
 								onChange={e => ImageChangeHandeler(e.target.files as FileList)}
 							/>
 							{image ? (
-								<Image
-									src={URL.createObjectURL(image as Blob)}
-									w={40}
-									h={40}
-									alt={'course-image'}
-								/>
+								<Image src={image as string} w={40} h={40} alt={'course-image'} />
 							) : (
 								<Box
 									w={40}
@@ -113,7 +125,7 @@ const AdminAddCourseForm = ({ setShow }: { setShow: (state: boolean) => void }) 
 					<Formik
 						onSubmit={createCourse}
 						validationSchema={AdminValidtions.CreateCourse()}
-						initialValues={inittionValue}
+						initialValues={FormCourseInittionValue}
 					>
 						<Form>
 							<TextFeild w='full' label='Ustoz' type='text' name='tech' placeholder='Ustoz' />
@@ -138,13 +150,13 @@ const AdminAddCourseForm = ({ setShow }: { setShow: (state: boolean) => void }) 
 									placeholder='tilni tanlang'
 									name='language'
 									label='tillar'
-									intgredients={languages}
+									intgredients={CourseSelectlanguages}
 								/>
 								<TextOptionalFailed
 									placeholder='darajani tanlang'
 									name='dagree'
 									label='Darajalar'
-									intgredients={dagrees}
+									intgredients={CourseSelectDagrees}
 								/>
 							</HStack>
 							<TextareaFeild name='discription' label='Discription' />
@@ -162,24 +174,5 @@ const AdminAddCourseForm = ({ setShow }: { setShow: (state: boolean) => void }) 
 
 export default AdminAddCourseForm;
 
-const inittionValue = {
-	title: '',
-	price: '',
-	dagree: '',
-	language: '',
-	tech: '',
-	discription: '',
-	tutorial: '',
-};
 
-const languages = [
-	{ value: "O'zbek Tili", label: "O'zbek Tili" },
-	{ value: 'Rus Tili', label: 'Rus Tili' },
-	{ value: 'Englis tili', label: 'Englis tili' },
-];
 
-const dagrees = [
-	{ value: 'Junior', label: 'Junior' },
-	{ value: 'Middile', label: 'Middile' },
-	{ value: 'Senior', label: 'Senior' },
-];

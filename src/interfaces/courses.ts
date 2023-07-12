@@ -35,3 +35,14 @@ export interface CommentItem {
 	createdAt: string;
 	rating: number;
 }
+
+export interface FormCourseInittionValueType {
+	title: string;
+	price: number;
+	dagree: string;
+	language: string;
+	tech: string;
+	discription: string;
+	tutorial: string;
+	_id?: string;
+}

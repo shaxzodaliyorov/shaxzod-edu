@@ -6,7 +6,7 @@ import Seo from '../layouts/seo/seo';
 import { CoursesPage } from '../page-components';
 import { GET_ALL_COURSES } from '../services/courses.services';
 
-const Courses = ({  }: CoursePageProps) => {
+const Courses = ({}: CoursePageProps) => {
 	const { t } = useTranslation();
 
 	return (
@@ -14,7 +14,7 @@ const Courses = ({  }: CoursePageProps) => {
 			metaTitle={`Shaxzod | ${t<string>('all_courses', { ns: 'seo' })}`}
 			metaDescription={t<string>('course_dic', { ns: 'seo' })}
 		>
-			<CoursesPage  />
+			<CoursesPage />
 		</Seo>
 	);
 };

@@ -9,14 +9,14 @@ import { ContactValidtion } from '../../validations/contact.validation';
 const ContactPage = () => {
 	const toast = useToast();
 	const [isLoading, setIsLoading] = useState(false);
-	const [disabled, seDisabled] = useState(false);
+	const [disabled, setDisabled] = useState(false);
 	const ContactSubmit = async ({ firstname, email, discription }: ContactMessageType) => {
 		try {
 			setIsLoading(true);
 			const data = `Ismi:${firstname}\n Email:${email}\n Izoh:${discription}\n `;
 			const response = await Contact_service.sendMessage(data);
 			setIsLoading(false);
-			seDisabled(true);
+			setDisabled(true);
 			toast({
 				title: 'Muvaffaqiyatli yuborildi !',
 				isClosable: true,
@@ -25,6 +25,8 @@ const ContactPage = () => {
 				status: 'success',
 			});
 		} catch (error) {
+			setIsLoading(false);
+			setDisabled(false);
 			toast({
 				title: 'Yuborilmadi !',
 				isClosable: true,
