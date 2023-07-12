@@ -1,5 +1,6 @@
 export { default as AccountRecovery } from './account-recovery/account-recovery';
 export { default as AdminAddCourseForm } from './admin-add-course-form/admin-add-course-form';
+export { default as AdminEditCourseModal } from './admin-edit-course-modal/admin-edit-course-modal';
 export { default as AllCourses } from './all-courses/all-courses';
 export { default as CourseAdminCard } from './course-admin-card/course-admin-card';
 export { default as CourseComments } from './course-comments/course-comments';
@@ -19,4 +20,5 @@ export { default as TextOptionalFailed } from './text-optional-failed/text-optio
 export { default as TextareaFeild } from './textarea-feild/textarea-feild';
 export { default as TextFeild } from './TextFeild/TextFeild';
 export { default as Verification } from './verification-component/verification';
-export {default as AdminEditCourseModal} from "./admin-edit-course-modal/admin-edit-course-modal"
+export {default as AdminAddLessonFrom} from "./admin-add-lesson-form/admin-add-lesson-form"
+export {default as AdminEditLessonModal} from "./admin-edit-lesson-modal/admin-edit-lesson-modal"

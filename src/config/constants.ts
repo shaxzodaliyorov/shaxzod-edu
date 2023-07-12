@@ -59,11 +59,6 @@ export const navigation = [
 				icon: FaInfo,
 			},
 			{
-				route: '/faq',
-				label: 'layout_faq',
-				icon: FaQuestion,
-			},
-			{
 				route: '/contact',
 				label: 'layout_contact',
 				icon: MdContactPhone,
@@ -209,11 +204,6 @@ export const AmdinNavigation = [
 		label: 'Courses',
 		icon: FaQuestion,
 	},
-	{
-		route: '/lessons',
-		label: 'Lessons',
-		icon: MdContactPhone,
-	},
 ];
 
 export const FormCourseInittionValue: FormCourseInittionValueType = {
@@ -237,3 +227,5 @@ export const CourseSelectDagrees = [
 	{ value: 'Middile', label: 'Middile' },
 	{ value: 'Senior', label: 'Senior' },
 ];
+
+export const initialValues = { title: '', videolink: '', hours: '', minutus: '', seconds: '' };

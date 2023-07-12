@@ -6,3 +6,15 @@ body {
 .react-multiple-carousel__arrow {
 	z-index: 50 !important;
 }
+
+.ql-snow .ql-stroke {
+	stroke: #fff !important;
+}
+
+.ql-snow .ql-picker-label {
+	color: #fff;
+}
+
+.ql-snow .ql-tooltip input[type=text]{
+	color:#6ce094
+}

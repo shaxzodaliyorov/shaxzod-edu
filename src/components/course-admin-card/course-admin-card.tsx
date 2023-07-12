@@ -52,7 +52,7 @@ const CourseAdminCard = ({ course, onOpen, setValues }: courseAdminCardProps) =>
 		setValues(item as FormCourseInittionValueType);
 		onOpen();
 	};
-			
+
 	const router = useRouter();
 
 	return (
@@ -122,7 +122,7 @@ const CourseAdminCard = ({ course, onOpen, setValues }: courseAdminCardProps) =>
 									colorScheme={'green'}
 									variant='outline'
 									leftIcon={<BiAddToQueue />}
-									onClick={() => router.push(`/admin/lesson/${course._id}`)}
+									onClick={() => router.push(`/admin/lesson/${course.slug}/${course._id}`)}
 								>
 									Dars Qo'shish
 								</Button>

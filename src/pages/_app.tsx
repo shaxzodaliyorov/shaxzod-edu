@@ -7,11 +7,13 @@ import 'nprogress/nprogress.css';
 import { Client, HydrationProvider } from 'react-hydration-provider';
 import { I18nextProvider } from 'react-i18next';
 import 'react-multi-carousel/lib/styles.css';
+import 'react-quill/dist/quill.snow.css';
 import { Provider } from 'react-redux';
 import i18n from '../i18n';
 import AuthProvider from '../provider/auth.provider';
 import { store } from '../store/store';
 import '../styles/globals.css';
+
 NProgress.configure({ showSpinner: false });
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {

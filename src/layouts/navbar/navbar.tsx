@@ -9,7 +9,6 @@ import {
 	MenuButton,
 	MenuItem,
 	MenuList,
-	Tooltip,
 	useColorMode,
 	useColorModeValue,
 } from '@chakra-ui/react';
@@ -18,10 +17,11 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AiOutlineSetting } from 'react-icons/ai';
-import { BsFillSunFill, BsTranslate } from 'react-icons/bs';
+import { BsFillSunFill } from 'react-icons/bs';
 import { FaMoon } from 'react-icons/fa';
 import { FiLogIn, FiLogOut } from 'react-icons/fi';
-import { RiAdminFill, RiMenu2Line, RiNotification3Fill } from 'react-icons/ri';
+import { RiAdminFill, RiMenu2Line } from 'react-icons/ri';
+import { TfiWorld } from 'react-icons/tfi';
 import { Languages } from '../../config/constants';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { removeItem } from '../../hooks/storage';
@@ -72,7 +72,7 @@ const Navbar = ({ ToggleBurger }: NavbarProps) => {
 						<Link href={'/'}>{colorMode === 'dark' ? <LightLogo /> : <DarkLogo />}</Link>
 					</HStack>
 					<HStack>
-						<Tooltip hasArrow label='beta tez kunda'>
+						{/* <Tooltip hasArrow label='beta tez kunda'>
 							<Button pos={'relative'}>
 								<RiNotification3Fill />
 								<Box
@@ -89,13 +89,12 @@ const Navbar = ({ ToggleBurger }: NavbarProps) => {
 									5
 								</Box>
 							</Button>
-						</Tooltip>
-
+						</Tooltip> */}
 						<Menu>
 							<MenuButton
 								display={{ base: 'none', md: 'block' }}
+								rightIcon={<TfiWorld />}
 								as={Button}
-								leftIcon={<BsTranslate />}
 							>
 								{i18n.resolvedLanguage.toLocaleUpperCase()}
 							</MenuButton>

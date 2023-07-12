@@ -1,5 +1,5 @@
 import { AXIOS_API_URL } from '../API';
-import { createCourseType } from '../interfaces/admin';
+import { createCourseType, lessonFormType } from '../interfaces/admin';
 import { FormCourseInittionValueType } from '../interfaces/courses';
 import { AdminUserUpdateInitiolState, UserType } from '../interfaces/user';
 
@@ -26,6 +26,18 @@ const Admin = {
 	},
 	async Edit_Course(courseId: string, formdata: FormCourseInittionValueType) {
 		const { data } = await AXIOS_API_URL.put(`/courses/update/${courseId}`, formdata);
+		return data;
+	},
+	async Delete_Lesson(lessonId: string, userId: string) {
+		const { data } = await AXIOS_API_URL.delete(`/videos/delete/${lessonId}/${userId}`);
+		return data;
+	},
+	async Create_Lesson(courseId: string, userId: string, formdata: lessonFormType) {
+		const { data } = await AXIOS_API_URL.post(`/videos/post/${courseId}/${userId}`, formdata);
+		return data;
+	},
+	async Edit_lesson(lessonId: string, userid: string, formdata: lessonFormType) {
+		const { data } = await AXIOS_API_URL.put(`/videos/update/${lessonId}/${userid}`, formdata);
 		return data;
 	},
 };

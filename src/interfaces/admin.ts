@@ -9,3 +9,12 @@ export interface createCourseType {
 	tutorial: string;
 	courseImg: string;
 }
+
+export interface lessonFormType {
+	title: string;
+	videolink: string;
+	hours: string;
+	minutus: string;
+	seconds: string;
+	id?: string;
+}

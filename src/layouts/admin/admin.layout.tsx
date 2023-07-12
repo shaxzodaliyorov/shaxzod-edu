@@ -1,6 +1,7 @@
 import { Box, Container } from '@chakra-ui/react';
 import { FunctionComponent, useState } from 'react';
 import { allCoursesType } from '../../interfaces/courses';
+import { LessonType } from '../../interfaces/lesson';
 import AdminProvidor from '../../provider/admin.providor';
 import Footer from '../footer/footer';
 import Navbar from '../navbar/navbar';
@@ -31,7 +32,12 @@ export const withAdminLayout = <T extends Record<string, unknown>>(
 	return function withLayoutAdminComponent(props: T): JSX.Element {
 		return (
 			<AdminLayout>
-				<AdminProvidor users={props.users} courses={props.courses as allCoursesType[]}>
+				<AdminProvidor
+					users={props.users}
+					Lessons={props.Lessons as LessonType[]}
+					courses={props.courses as allCoursesType[]}
+					course={props.course as allCoursesType}
+				>
 					<Component {...props} />
 				</AdminProvidor>
 			</AdminLayout>
