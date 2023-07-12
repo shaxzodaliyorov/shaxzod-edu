@@ -35,6 +35,8 @@ const SecurityPage = () => {
 
 	if (!lesson) return;
 
+	if (!lessons) return;
+
 	return (
 		<>
 			<Flex p={5} w={'100%'} flexWrap={'wrap'} justify={'space-between'} pos={'relative'}>
@@ -101,9 +103,9 @@ const SecurityPage = () => {
 									key={index}
 									// bg={'green.400'}
 								>
-									<HStack onClick={() => chanageLesson(item._id as string)}>
+									<HStack onClick={() => chanageLesson(item?._id as string)}>
 										<Checkbox colorScheme={'green'}></Checkbox>
-										<Text>{item.title}</Text>
+										<Text>{item?.title}</Text>
 									</HStack>
 								</Box>
 							</Skeleton>
