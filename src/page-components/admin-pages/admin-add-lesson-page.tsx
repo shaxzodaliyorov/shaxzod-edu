@@ -64,6 +64,8 @@ const AdminAddLessonPage = () => {
 		setDiscription(item.videoDisc);
 	};
 
+	if (!lessons) return;
+
 	return (
 		<>
 			<SectionTitle
@@ -87,9 +89,13 @@ const AdminAddLessonPage = () => {
 								{lessons?.map((item: LessonType, index: number) => (
 									<Tr key={index}>
 										<Td>{index + 1}</Td>
-										<Td>{item.title}</Td>
+										<Td>{item?.title}</Td>
 										<Td>
-											{TimeHelper(Number(item.hours), Number(item.minutus), Number(item.seconds))}
+											{TimeHelper(
+												Number(item?.hours),
+												Number(item?.minutus),
+												Number(item?.seconds)
+											)}
 										</Td>
 										<Td isNumeric>
 											<Button
@@ -104,7 +110,7 @@ const AdminAddLessonPage = () => {
 											<Button
 												colorScheme={'red'}
 												variant={'outline'}
-												onClick={() => deleteLesson(item._id as string)}
+												onClick={() => deleteLesson(item?._id as string)}
 												isLoading={isLoading}
 											>
 												{isLoading ? <Spinner /> : <AiFillDelete />}
