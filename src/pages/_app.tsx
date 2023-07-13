@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
+import { useEffect } from 'react';
 import { Client, HydrationProvider } from 'react-hydration-provider';
 import { I18nextProvider } from 'react-i18next';
 import 'react-multi-carousel/lib/styles.css';
@@ -23,6 +24,10 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
 	Router.events.on('routeChangeComplete', () => {
 		NProgress.done();
 	});
+
+	useEffect(() => {
+		localStorage.setItem('chakra-ui-color-mode', 'dark');
+	}, []);
 
 	return (
 		<HydrationProvider>
