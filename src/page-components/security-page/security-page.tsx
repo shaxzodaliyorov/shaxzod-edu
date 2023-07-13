@@ -23,6 +23,7 @@ const SecurityPage = () => {
 	const { course } = useAppSelector(state => state.course);
 	const { query, replace } = useRouter();
 	const dispatch = useAppDispatch();
+	
 	const chanageLesson = (id: string) => {
 		const link = `/security/${course?.slug}`;
 		localStorage.setItem(course?.slug as string, id);
@@ -32,10 +33,6 @@ const SecurityPage = () => {
 		const FindLesson = lessons.find(c => c._id === id);
 		dispatch(getLesson(FindLesson));
 	};
-
-	if (!lesson) return;
-
-	if (!lessons) return;
 
 	return (
 		<>
