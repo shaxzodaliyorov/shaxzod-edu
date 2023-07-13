@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
 										clientId={process.env.VITE_AUTH0_CLIENT_ID as string}
 										domain={process.env.VITE_AUTH0_DOMAIN as string}
 										authorizationParams={{
-											redirect_uri: window.location.origin,
+											redirect_uri: process.env.NEXT_PUBLIC_CLIENT_DOMAIN,
 											audience: process.env.VITE_AUTH0_AUDIENCE,
 											scope: 'openid profile admin',
 										}}
