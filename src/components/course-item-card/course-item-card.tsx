@@ -1,15 +1,16 @@
 import {
 	Button,
 	Card,
+	chakra,
 	Divider,
 	Flex,
 	Heading,
 	HStack,
-	Image,
 	List,
 	ListItem,
 	Text,
 } from '@chakra-ui/react';
+import NextImage from 'next/image';
 import { useRouter } from 'next/router';
 import { AiFillClockCircle, AiOutlineDollar, AiOutlineTranslation } from 'react-icons/ai';
 import { SiSimpleanalytics } from 'react-icons/si';
@@ -17,6 +18,21 @@ import { useAppSelector } from '../../hooks/redux';
 import { GET_ALL_COURSES } from '../../services/courses.services';
 
 const CourseItemCard = (): JSX.Element => {
+	const Image = chakra(NextImage, {
+		baseStyle: { maxH: { base: 300, sm: 380, md: 450 }, maxW: 'full' },
+		shouldForwardProp: prop =>
+			[
+				'width',
+				'height',
+				'src',
+				'alt',
+				'quality',
+				'placeholder',
+				'blurDataURL',
+				'loader ',
+			].includes(prop),
+	});
+
 	const { user } = useAppSelector(state => state.auth);
 	const { course } = useAppSelector(state => state.course);
 	const router = useRouter();
@@ -35,11 +51,11 @@ const CourseItemCard = (): JSX.Element => {
 	return (
 		<Card p={1}>
 			<Image
-				w={'100%'}
+				width={480}
 				borderRadius={'md'}
-				h={{ base: '300px', sm: '380px', md: '450px' }}
-				src={course?.courseImg}
-				alt={course?.title}
+				height={750}
+				src={course?.courseImg as string}
+				alt={course?.title as string}
 			/>
 
 			<Flex justifyContent={'space-between'} px={2} alignItems={'center'}>
