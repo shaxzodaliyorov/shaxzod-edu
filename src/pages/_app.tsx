@@ -1,4 +1,3 @@
-import { Auth0Provider } from '@auth0/auth0-react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
@@ -37,17 +36,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
 						<ChakraProvider>
 							<AuthProvider>
 								<Client>
-									<Auth0Provider
-										clientId={process.env.VITE_AUTH0_CLIENT_ID as string}
-										domain={process.env.VITE_AUTH0_DOMAIN as string}
-										authorizationParams={{
-											redirect_uri: process.env.NEXT_PUBLIC_CLIENT_DOMAIN,
-											audience: process.env.VITE_AUTH0_AUDIENCE,
-											scope: 'openid profile admin',
-										}}
-									>
-										<Component {...pageProps} />
-									</Auth0Provider>
+									<Component {...pageProps} />
 								</Client>
 							</AuthProvider>
 						</ChakraProvider>
