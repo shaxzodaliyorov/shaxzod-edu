@@ -22,3 +22,4 @@ export { default as TextFeild } from './TextFeild/TextFeild';
 export { default as Verification } from './verification-component/verification';
 export {default as AdminAddLessonFrom} from "./admin-add-lesson-form/admin-add-lesson-form"
 export {default as AdminEditLessonModal} from "./admin-edit-lesson-modal/admin-edit-lesson-modal"
+export {default as Loader} from "./loader/loader"

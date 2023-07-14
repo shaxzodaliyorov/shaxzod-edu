@@ -1,4 +1,4 @@
-import { LessonType } from '../../interfaces/lesson';
+import { LessonType } from "../../interfaces/lesson";
 
 export interface LessonInitialStateType {
 	lesson: LessonType | null;

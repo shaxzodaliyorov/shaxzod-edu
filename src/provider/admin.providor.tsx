@@ -5,7 +5,7 @@ import { LessonType } from '../interfaces/lesson';
 import { UserType } from '../interfaces/user';
 import { getAllUsers } from '../store/admin/admin.slice';
 import { getCourse, getCourses } from '../store/courses/course.slice';
-import { getLessons } from '../store/lessons/lessons.slice';
+import { getLessons } from '../store/courses/lessons/lessons.slice';
 
 interface Props {
 	children: ReactNode;

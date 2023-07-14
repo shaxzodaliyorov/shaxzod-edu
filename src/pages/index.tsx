@@ -1,25 +1,43 @@
 import { GetServerSideProps } from 'next';
-import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from '../hooks/redux';
+import { Loader } from '../components';
+import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { allCoursesType } from '../interfaces/courses';
 import { WithLayout } from '../layouts/layout';
 import Seo from '../layouts/seo/seo';
 import { HomePage } from '../page-components';
 import { GET_ALL_COURSES } from '../services/courses.services';
-import { getCourse } from '../store/courses/course.slice';
+import { getCourses, loadingCourse } from '../store/courses/course.slice';
 
 function Home({ courses }: HomePageProps): JSX.Element {
 	const { t } = useTranslation();
+	const { isLoading } = useAppSelector(state => state.course);
+
 	const dispatch = useAppDispatch();
-	const router = useRouter();
-	
+
+	const getAllCourses = async () => {
+		dispatch(loadingCourse(true));
+		const response = await GET_ALL_COURSES.GET();
+		dispatch(getCourses(response));
+		dispatch(loadingCourse(false));
+	};
+
+	useEffect(() => {
+		getAllCourses();
+		if (isLoading) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = 'auto';
+		}
+	}, []);
+
 	return (
 		<Seo
 			metaTitle={`Shaxzod | ${t<string>('home_title', { ns: 'seo' })}`}
 			metaDescription={t<string>('home_disc', { ns: 'seo' })}
 		>
-			<HomePage courses={courses} />
+			{isLoading ? <Loader /> : <HomePage courses={courses} />}
 		</Seo>
 	);
 }

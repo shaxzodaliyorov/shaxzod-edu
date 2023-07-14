@@ -26,8 +26,8 @@ import Lesson from '../../services/lesson.services';
 import { getLessons } from '../../store/lessons/lessons.slice';
 
 const AdminAddLessonPage = (): JSX.Element => {
-	const { lessons } = useAppSelector(state => state.lesson);
 	const { user } = useAppSelector(state => state.auth);
+	const { lessons } =useAppSelector(state=>state.lesson)
 	const { course } = useAppSelector(state => state.course);
 	const [initialValues, setInitialValues] = useState({});
 	const [discription, setDiscription] = useState('');

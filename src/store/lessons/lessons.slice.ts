@@ -23,6 +23,6 @@ const LessonSlice = createSlice({
 	},
 });
 
-export const { getLessons, loading,getLesson } = LessonSlice.actions;
+export const { getLessons, loading, getLesson } = LessonSlice.actions;
 
 export default LessonSlice.reducer;

@@ -9,7 +9,7 @@ import { SecurityPage } from '../../page-components';
 import { GET_ALL_COURSES } from '../../services/courses.services';
 import Lesson from '../../services/lesson.services';
 import { getCourse } from '../../store/courses/course.slice';
-import { getLesson, getLessons, loading } from '../../store/lessons/lessons.slice';
+import { getLesson, getLessons, loading } from '../../store/courses/lessons/lessons.slice';
 
 const Security = ({ courseLesson }: LessonPageProps) => {
 	const dispatch = useAppDispatch();
@@ -31,9 +31,11 @@ const Security = ({ courseLesson }: LessonPageProps) => {
 	}, [course]);
 
 	useEffect(() => {
-		const LessonId = localStorage.getItem(course?.slug as string) ? localStorage.getItem(course?.slug as string) : "";
+		const LessonId = localStorage.getItem(course?.slug as string)
+			? localStorage.getItem(course?.slug as string)
+			: '';
 		const link = `/security/${course?.slug}`;
-		
+
 		if (!LessonId) {
 			const currentLesson = lessons[0];
 			dispatch(getLesson(currentLesson));
