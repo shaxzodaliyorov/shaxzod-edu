@@ -25,7 +25,6 @@ import { useAppSelector } from '../../hooks/redux';
 import { AdminUserUpdateInitiolState, UserType } from '../../interfaces/user';
 import Admin from '../../services/admin.services';
 import { getAllUsers } from '../../store/admin/admin.slice';
-
 const AdminUserPage = () => {
 	const { users } = useAppSelector(state => state.admin);
 	const { user } = useAppSelector(state => state.auth);

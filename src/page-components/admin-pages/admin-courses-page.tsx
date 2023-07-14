@@ -1,21 +1,20 @@
 import { Button, useDisclosure } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import { BiAddToQueue } from 'react-icons/bi';
-import {
-	AdminAddCourseForm,
-	AdminEditCourseModal,
-	CourseAdminCard,
-	SectionTitle,
-} from '../../components';
+import { AdminAddCourseForm, CourseAdminCard, SectionTitle } from '../../components';
 import { useAppSelector } from '../../hooks/redux';
 import { FormCourseInittionValueType } from '../../interfaces/courses';
+const AdminEditCourseModal = dynamic(
+	() => import('../../components/admin-edit-course-modal/admin-edit-course-modal')
+);
 
 const AdminCoursesPage = () => {
 	const [show, setShow] = useState(false);
 	const { courses } = useAppSelector(state => state.course);
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const [values, setValues] = useState({});
-	
+
 	return (
 		<>
 			<SectionTitle title='Course Dashboard' subtitle="bu sahifada kurslar qo'shingiz mumkin" />

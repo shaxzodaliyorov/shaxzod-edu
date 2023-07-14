@@ -69,7 +69,7 @@ const Navbar = ({ ToggleBurger }: NavbarProps) => {
 				<Flex h={'full'} justifyContent={'space-between'} alignItems={'center'}>
 					<HStack spacing={8}>
 						<IconButton onClick={ToggleBurger} icon={<RiMenu2Line />} aria-label={'menu button'} />
-						<Link href={'/'}>{colorMode === 'dark' ? <LightLogo /> : <DarkLogo />}</Link>
+						<Link href={'/'} prefetch={false} >{colorMode === 'dark' ? <LightLogo /> : <DarkLogo />}</Link>
 					</HStack>
 					<HStack>
 						{/* <Tooltip hasArrow label='beta tez kunda'>

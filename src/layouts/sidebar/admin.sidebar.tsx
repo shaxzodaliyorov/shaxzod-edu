@@ -30,7 +30,7 @@ const AdminSidebar = ({ Toggle }: SideBarProps) => {
 				{AmdinNavigation.map((item, idx) => {
 					const active = `/${asPath.split('/')[2]}` === item.route;
 					return (
-						<Link href={`/admin${item.route}`} key={idx}>
+						<Link href={`/admin${item.route}`} prefetch={false} key={idx}>
 							<Button
 								colorScheme={'green'}
 								variant={active ? 'solid' : 'ghost'}

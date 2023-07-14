@@ -10,7 +10,7 @@ import {
 import { BsTelegram, BsTwitter, BsYoutube } from "react-icons/bs";
 const Footer = () => {
   return (
-    <Box bg={useColorModeValue("gray.200", "gray.700")} py={4} zIndex={99}>
+    <Box pl={{ base: 0, lg: '300px' }} bg={useColorModeValue("gray.200", "gray.700")} py={4} zIndex={99}>
       <Container maxW={"container.lg"}>
         <Flex justifyContent={"space-between"} alignItems={"center"} w={"full"}>
           <Text>

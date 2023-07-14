@@ -9,7 +9,7 @@ import {
   MenuItem,
   MenuList,
   Text,
-  useColorModeValue,
+  useColorModeValue
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -88,7 +88,7 @@ const Sidebar = ({ Toggle }: SideBarProps) => {
               {item.nav.map((nav, idx) => {
                 const active = asPath === nav.route;
                 return (
-                  <Link href={nav.route} key={idx}>
+                  <Link href={nav.route} key={idx} prefetch={false} >
                     <Button
                       colorScheme={"green"}
                       variant={active ? "solid" : "ghost"}

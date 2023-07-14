@@ -123,7 +123,7 @@ export default function LoginComponent({ ChangeAuthPage }: LoginComponentProps) 
 				<SocialMedia />
 
 				<Box mt={2}>
-					<Link style={{ textDecoration: 'underline' }} href='/'>
+					<Link prefetch={false} style={{ textDecoration: 'underline' }} href='/'>
 						{t('home', { ns: 'auth' })}
 					</Link>
 				</Box>

@@ -5,7 +5,6 @@ import Footer from './footer/footer';
 import { AppProviderProps, layoutProps } from './layout.props';
 import Navbar from './navbar/navbar';
 import Sidebar from './sidebar/sidebar';
-
 const Layout = ({ children }: layoutProps): JSX.Element => {
 	const [Toggle, setToggle] = useState<boolean>(false);
 
@@ -38,4 +37,3 @@ export const WithLayout = <T extends Record<string, unknown> & AppProviderProps>
 		);
 	};
 };
-

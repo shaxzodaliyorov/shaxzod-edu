@@ -22,7 +22,7 @@ const SecurityNavbar = () => {
 		>
 			<Flex h={'full'} justifyContent={'space-between'} alignItems={'center'}>
 				<HStack spacing={8}>
-					<Link href={'/'}>{colorMode === 'dark' ? <LightLogo /> : <DarkLogo />}</Link>
+					<Link href={'/'} prefetch={false} >{colorMode === 'dark' ? <LightLogo /> : <DarkLogo />}</Link>
 				</HStack>
 				<HStack>
 					<Button variant={'solid'} isDisabled={true}>

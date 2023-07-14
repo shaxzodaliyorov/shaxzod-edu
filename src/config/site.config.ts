@@ -9,8 +9,8 @@ export const SiteConfig = {
 		author: 'Shaxzod Aliyorov',
 	},
 	baseURL: 'https://shaxzod.netlify.app/',
-	logo: '/logo.jpg',
+	logo: './logo.jpg',
 	logoText: 'Shaxzod',
-	favicon: '/logo.jpg',
+	favicon: './logo.jpg',
 };
 // mongodb+srv://shaxzod:shaxzod@cluster0.q56xwyy.mongodb.net/eduction
