@@ -19,7 +19,7 @@ import { useTranslation } from 'react-i18next';
 import { AiOutlineSetting } from 'react-icons/ai';
 import { BsFillSunFill } from 'react-icons/bs';
 import { FaMoon } from 'react-icons/fa';
-import { FiLogIn, FiLogOut } from 'react-icons/fi';
+import { FiLogOut } from 'react-icons/fi';
 import { RiAdminFill, RiMenu2Line } from 'react-icons/ri';
 import { TfiWorld } from 'react-icons/tfi';
 import { Languages } from '../../config/constants';
@@ -136,11 +136,7 @@ const Navbar = ({ ToggleBurger }: NavbarProps) => {
 								</MenuList>
 							</Menu>
 						) : (
-							<Button
-								onClick={() => router.push('/auth')}
-								rightIcon={<FiLogIn />}
-								colorScheme={'green'}
-							>
+							<Button onClick={() => router.push('/auth')} colorScheme={'green'}>
 								{t('layout_login', { ns: 'layout' })}
 							</Button>
 						)}
