@@ -9,20 +9,9 @@ import { CoursesPage } from "../page-components";
 import { GET_ALL_COURSES } from "../services/courses.services";
 import { getCourses, loadingCourse } from "../store/courses/course.slice";
 
-const Courses = ({}) => {
+const Courses = ({courses}:CoursePageProps) => {
   const { t } = useTranslation();
-  const dispatch = useAppDispatch();
-
-  const getAllCourses = async () => {
-    dispatch(loadingCourse(true));
-    const response = await GET_ALL_COURSES.GET();
-    dispatch(getCourses(response));
-    dispatch(loadingCourse(false));
-  };
-
-  useEffect(() => {
-    getAllCourses();
-  }, []);
+  
 
   return (
     <Seo
@@ -36,15 +25,15 @@ const Courses = ({}) => {
 
 export default WithLayout(Courses);
 
-// export const getServerSideProps: GetServerSideProps<CoursePageProps> = async () => {
-// 	const courses = await GET_ALL_COURSES.GET();
-// 	return {
-// 		props: {
-// 			courses,
-// 		},
-// 	};
-// };
+export const getServerSideProps: GetServerSideProps<CoursePageProps> = async () => {
+	const courses = await GET_ALL_COURSES.GET();
+	return {
+		props: {
+			courses,
+		},
+	};
+};
 
-// export interface CoursePageProps extends Record<string, unknown> {
-// 	courses: allCoursesType[];
-// }
+export interface CoursePageProps extends Record<string, unknown> {
+	courses: allCoursesType[];
+}
