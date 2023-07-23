@@ -8,6 +8,7 @@ import Admin from '../../services/admin.services';
 import Lesson from '../../services/lesson.services';
 import { getLessons } from '../../store/lessons/lessons.slice';
 import TextFeild from '../TextFeild/TextFeild';
+
 const ReactQuill = dynamic(import('react-quill'), { ssr: false });
 const AdminAddLessonFrom = ({ setShow }: { setShow: (state: boolean) => void }) => {
 	const [islaoding, setIslaoding] = useState(false);
@@ -15,11 +16,14 @@ const AdminAddLessonFrom = ({ setShow }: { setShow: (state: boolean) => void }) 
 	const { user } = useAppSelector(state => state.auth);
 	const { course } = useAppSelector(state => state.course);
 	const dispatch = useAppDispatch();
-
+	
 	const getAllLessons = async () => {
 		const response = await Lesson.getLessons(course?._id as string);
 		dispatch(getLessons(response));
 	};
+
+	console.log(course);
+	
 
 	const createLesson = async (formdata: any) => {
 		const data = { ...formdata, videoDisc: discription };
